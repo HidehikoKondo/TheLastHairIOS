@@ -272,7 +272,6 @@
         <class className="AppsListViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AppsListViewController.h"/>
             <relationships>
-                <relationship kind="action" name="backButton:"/>
                 <relationship kind="outlet" name="appWebView" candidateClass="UIWebView"/>
                 <relationship kind="outlet" name="loadingView" candidateClass="UIView"/>
             </relationships>

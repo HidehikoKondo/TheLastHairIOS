@@ -59,6 +59,8 @@
 		06C7B4E21711C5DE001783D2 /* unplug.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 06C7B4DB1711C5DE001783D2 /* unplug.mp3 */; };
 		06C7B4E41711C649001783D2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06C7B4E31711C649001783D2 /* AudioToolbox.framework */; };
 		06C7B4E61711C996001783D2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06C7B4E51711C996001783D2 /* AVFoundation.framework */; };
+		06F1776A173FD80300376A7B /* libAdStir-iAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F17769173FD80300376A7B /* libAdStir-iAd.a */; };
+		06F1776C173FD81300376A7B /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F1776B173FD81300376A7B /* iAd.framework */; };
 		06FDA2B2171AED3800F09F33 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FDA2B1171AED3800F09F33 /* GameViewController.m */; };
 		06FF4544171D997400907758 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 06FF4542171D997400907758 /* icon.png */; };
 		06FF4545171D997400907758 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06FF4543171D997400907758 /* icon@2x.png */; };
@@ -131,6 +133,8 @@
 		06C7B4DB1711C5DE001783D2 /* unplug.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = unplug.mp3; sourceTree = "<group>"; };
 		06C7B4E31711C649001783D2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		06C7B4E51711C996001783D2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		06F17769173FD80300376A7B /* libAdStir-iAd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libAdStir-iAd.a"; sourceTree = "<group>"; };
+		06F1776B173FD81300376A7B /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		06FDA2B0171AED3800F09F33 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		06FDA2B1171AED3800F09F33 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		06FDA2B3171B017200F09F33 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -146,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06F1776C173FD81300376A7B /* iAd.framework in Frameworks */,
 				06C7B4E61711C996001783D2 /* AVFoundation.framework in Frameworks */,
 				06C7B4E41711C649001783D2 /* AudioToolbox.framework in Frameworks */,
 				06C7B4D21711C511001783D2 /* GameKit.framework in Frameworks */,
@@ -165,6 +170,7 @@
 				06C7B49117114A02001783D2 /* libNendAd.a in Frameworks */,
 				06C7B49617114B20001783D2 /* libAdStir-AMoAD.a in Frameworks */,
 				06C7B49817114B47001783D2 /* libAMoAd.a in Frameworks */,
+				06F1776A173FD80300376A7B /* libAdStir-iAd.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,6 +201,7 @@
 		06C7B451171147B3001783D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				06F1776B173FD81300376A7B /* iAd.framework */,
 				06C7B4E51711C996001783D2 /* AVFoundation.framework */,
 				06C7B4E31711C649001783D2 /* AudioToolbox.framework */,
 				06C7B4D11711C510001783D2 /* GameKit.framework */,
@@ -249,6 +256,7 @@
 		06C7B475171147CB001783D2 /* ad */ = {
 			isa = PBXGroup;
 			children = (
+				06F17768173FD7EE00376A7B /* iAd */,
 				06C7B49417114AF6001783D2 /* Amoad */,
 				06C7B49317114AEA001783D2 /* Adstir */,
 				06C7B49217114ACD001783D2 /* Appbank */,
@@ -334,6 +342,14 @@
 				06C7B4DB1711C5DE001783D2 /* unplug.mp3 */,
 			);
 			path = sound;
+			sourceTree = "<group>";
+		};
+		06F17768173FD7EE00376A7B /* iAd */ = {
+			isa = PBXGroup;
+			children = (
+				06F17769173FD80300376A7B /* libAdStir-iAd.a */,
+			);
+			name = iAd;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
