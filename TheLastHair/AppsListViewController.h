@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  AppsListViewController.h
 //  TheLastHair
 //
 //  Created by HIDEHIKO KONDO on 2013/04/07.
@@ -7,17 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AdstirView.h"
 #import <GameKit/GameKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import "AdstirView.h"
 
 
-@interface ViewController : UIViewController<AdstirViewDelegate,GKLeaderboardViewControllerDelegate>
-
-
+@interface AppsListViewController : UIViewController<AdstirViewDelegate>
 @property (nonatomic, retain) AdstirView* adview; //プロパティーで宣言すると、管理が簡単になります。
-- (IBAction)tweetButton:(id)sender;
-- (IBAction)likeButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIWebView *appWebView;
+@property (weak, nonatomic) IBOutlet UIView *loadingView;
+
 
 @end
