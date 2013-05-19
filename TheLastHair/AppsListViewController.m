@@ -10,7 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 
-#define APPLISTURL @"http://www.udonko.net/apps/applist.html"  // アプリ一覧のURL
+#define APPLISTURL @"http://www.udonko.net/applist"  // アプリ一覧のURL
 @interface AppsListViewController ()
 
 @end

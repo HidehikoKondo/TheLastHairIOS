@@ -589,6 +589,7 @@
 		06C7B474171147B3001783D2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: HIDEHIKO KONDO";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../../Desktop/ast-ios-sdk_v1.2.0/Ast-Icon-iOS-SDK-1.2.0\"",
@@ -604,6 +605,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "555C17A1-7723-4389-865F-B268840D63C2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
