@@ -13,11 +13,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="title.png" id="zRW-BD-glw">
-                                <rect key="frame" x="7" y="41" width="307" height="68"/>
+                                <rect key="frame" x="7" y="60" width="307" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xUF-Gg-Fbj">
-                                <rect key="frame" x="87" y="174" width="147" height="45"/>
+                                <rect key="frame" x="87" y="198" width="147" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Button" image="startbutton.png">
@@ -32,7 +32,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aas-mJ-pfg">
-                                <rect key="frame" x="53" y="258" width="214" height="52"/>
+                                <rect key="frame" x="53" y="285" width="214" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Button" image="rankbutton.png">
@@ -47,7 +47,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Go0-vb-KJY">
-                                <rect key="frame" x="23" y="399" width="74" height="74"/>
+                                <rect key="frame" x="32" y="399" width="57" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Button" image="tweetbutton.png">
@@ -62,7 +62,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="JhK-V4-ADl">
-                                <rect key="frame" x="123" y="399" width="74" height="74"/>
+                                <rect key="frame" x="132" y="399" width="57" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Button" image="likebutton.png">
@@ -76,8 +76,23 @@
                                     <action selector="likeButton:" destination="2" eventType="touchUpInside" id="LTQ-Mr-sTo"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="L1G-Ip-L36">
+                                <rect key="frame" x="232" y="399" width="57" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button" image="lineButton.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="lineButton:" destination="2" eventType="touchUpInside" id="ZYm-UV-73b"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1zz-fT-56X">
-                                <rect key="frame" x="223" y="399" width="74" height="74"/>
+                                <rect key="frame" x="132" y="484" width="57" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Button" image="udonkoapps.png">
@@ -92,9 +107,12 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.55614985105389403" green="1" blue="0.61597394499579206" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.71479897944544546" green="1" blue="0.68766573422083876" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="appsButton" destination="1zz-fT-56X" id="FRU-BV-zcl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
@@ -109,11 +127,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="namiheihead.png" id="UXJ-s3-IAN" userLabel="Image View - 頭">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="50" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="hair.png" id="HS6-tX-jia" userLabel="Image View - 毛">
-                                <rect key="frame" x="145" y="130" width="25" height="60"/>
+                                <rect key="frame" x="145" y="180" width="25" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="umiheicombo.png" id="zGj-Sm-sse" userLabel="Image View - コンボ">
@@ -121,11 +139,11 @@
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="finger.png" id="OQy-6N-LyS" userLabel="Image View - 指">
-                                <rect key="frame" x="107" y="-74" width="213" height="223"/>
+                                <rect key="frame" x="107" y="-24" width="213" height="223"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0本抜き" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="B2l-s4-gkX">
-                                <rect key="frame" x="10" y="10" width="304" height="40"/>
+                                <rect key="frame" x="10" y="55" width="304" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -142,11 +160,11 @@
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <view contentMode="scaleToFill" id="iPP-lx-sC6" userLabel="ゲームオーバー">
-                                <rect key="frame" x="9" y="-96" width="300" height="92"/>
+                                <rect key="frame" x="0.0" y="568" width="320" height="270"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ハイスコア：0本抜き" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6Xu-mo-3gz">
-                                        <rect key="frame" x="0.0" y="0.0" width="295" height="40"/>
+                                        <rect key="frame" x="10" y="0.0" width="295" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -155,7 +173,7 @@
                                         <size key="shadowOffset" width="2" height="1"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="今のハイス：0本抜き" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vQE-jY-prR">
-                                        <rect key="frame" x="0.0" y="32" width="295" height="40"/>
+                                        <rect key="frame" x="10" y="32" width="295" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -164,7 +182,7 @@
                                         <size key="shadowOffset" width="2" height="1"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="c9A-4w-9o9">
-                                        <rect key="frame" x="223" y="66" width="72" height="27"/>
+                                        <rect key="frame" x="124" y="74" width="72" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Button" image="endbutton.png">
@@ -260,6 +278,7 @@
         <image name="hair.png" width="50" height="200"/>
         <image name="house.png" width="640" height="1136"/>
         <image name="likebutton.png" width="148" height="148"/>
+        <image name="lineButton.png" width="148" height="148"/>
         <image name="namiheihead.png" width="640" height="1136"/>
         <image name="rankbutton.png" width="428" height="105"/>
         <image name="startbutton.png" width="294" height="90"/>
@@ -296,7 +315,9 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
                 <relationship kind="action" name="likeButton:"/>
+                <relationship kind="action" name="lineButton:"/>
                 <relationship kind="action" name="tweetButton:"/>
+                <relationship kind="outlet" name="appsButton" candidateClass="UIButton"/>
             </relationships>
         </class>
     </classes>

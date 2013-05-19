@@ -10,6 +10,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import <Social/Social.h>
 #import <Twitter/TWTweetComposeViewController.h>
+#import <MrdIconSDK/MrdIconSDK.h>
+
 
 #define TWEETTITLE   @"Twitterにサインインしてね"
 #define TWEETMESSAGE @"iPhoneの「設定」→「Twitter」→ユーザー名とパスワードを入力して「サインイン」をタップ"
@@ -20,14 +22,19 @@
 
 
 
-
 @interface ViewController (){
     NSUserDefaults *score;  //スコア保存用
+    
 }
+@property (nonatomic, retain) MrdIconLoader* iconLoader;
 
 @end
 
+@interface ViewController(MrdIconLoaderDelegate)<MrdIconLoaderDelegate>
+@end
+
 @implementation ViewController
+@synthesize iconLoader = _iconLoader;
 
 - (void)viewDidLoad
 {
@@ -43,6 +50,43 @@
     
     //スコアを読み出し
     score = [NSUserDefaults standardUserDefaults];
+    
+    
+    //アスタ表示
+    [self displayIconAdd];
+    
+    
+    
+}
+
+-(void)displayIconAdd{
+    //表示するY座標をUDONKOAPPSボタンと同じにする
+    NSInteger iconY = _appsButton.frame.origin.y;
+    
+    // The array of points used as origin of icon frame
+	CGPoint origins[] = {
+		{23, iconY},
+        {222, iconY}
+    };
+    
+    MrdIconLoader* iconLoader = [[MrdIconLoader alloc]init]; // (1)
+    self.iconLoader = iconLoader;
+	iconLoader.delegate = self;
+//	IF_NO_ARC([iconLoader release];)
+
+    
+    
+    for (int i=0; i < 2; i++)
+	{
+        CGRect frame;                                                       //frame
+        frame.origin = origins[i];                                          //位置
+        frame.size = kMrdIconCell_DefaultViewSize;                          //サイズ75x75
+        MrdIconCell* iconCell = [[MrdIconCell alloc]initWithFrame:frame];   //セル生成
+        [iconLoader addIconCell:iconCell];                                  //セル追加
+        [self.view addSubview:iconCell];                                    //セル配置
+        [iconLoader startLoadWithMediaCode: @"id570377317"];                //ID設定
+        _iconLoader = iconLoader; 
+    }
 
 }
 
@@ -66,7 +110,8 @@
     CGRect rect = sc.bounds;
     NSLog(@"%.1f, %.1f", rect.size.width, rect.size.height);
     
-    self.adview = [[AdstirView alloc]initWithOrigin:CGPointMake(0, rect.size.height-50)];
+//    self.adview = [[AdstirView alloc]initWithOrigin:CGPointMake(0, rect.size.height-50)];
+    self.adview = [[AdstirView alloc]initWithOrigin:CGPointZero];
     self.adview.media = @"MEDIA-f5977393";
 	self.adview.spot = 1;
 	self.adview.rootViewController = self;
@@ -76,8 +121,8 @@
     //リーダーボードにハイスコアを送信
     [self sendLeaderboard];
     
-
-
+    
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -88,7 +133,7 @@
 	self.adview = nil;
 	[super viewWillDisappear:animated];
     
-
+    
 }
 
 
@@ -299,5 +344,75 @@ BOOL isGameCenterAPIAvailable()
 
 
 
+
+- (void)viewDidUnload {
+    [self setAppsButton:nil];
+    [super viewDidUnload];
+}
+- (IBAction)lineButton:(id)sender {
+    //音再生
+    [self playSound:@"ok"];
+    
+    // LINE に直接遷移。contentType で画像を指定する事もできる。アプリが入っていない場合は何も起きない。
+    NSString *contentType = @"text";
+    NSString *plainString = [NSString stringWithFormat:@"%@\n【ハゲ親父断髪式：最高記録 %d本抜き】\n%@",
+                             SOCIALTEXT,
+                             [score integerForKey:@"SCORE"],
+                             APPURL ];
+    
+    // escape
+    NSString *contentKey = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(
+                                                                                        NULL,
+                                                                                        (CFStringRef)plainString,
+                                                                                        NULL,
+                                                                                        (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                                                                        kCFStringEncodingUTF8 );
+    NSString *urlString2 = [NSString
+                            stringWithFormat:@"line://msg/%@/%@",
+                            contentType, contentKey];
+    NSURL *url = [NSURL URLWithString:urlString2];
+    
+    // LINEがインストールされているかどうか確認
+    if([[UIApplication sharedApplication] canOpenURL:url]) {
+        [[UIApplication sharedApplication] openURL:url];
+    } else {
+        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@""
+                                                      message:[NSString stringWithFormat:@"LINEをインストールしてね〜♪"]
+                                                     delegate:nil
+                                            cancelButtonTitle:nil
+                                            otherButtonTitles:@"OK", nil] ;
+        [alert show];
+    }
+}
+@end
+
+////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - aster広告delegate
+@implementation ViewController(MrdIconLoaderDelegate)
+
+- (void)loader:(MrdIconLoader*)loader didReceiveContentForCells:(NSArray *)cells
+{
+	for (id cell in cells) {
+		NSLog(@"---- The content loaded for iconCell:%p, loader:%p", cell,  loader);
+	}
+}
+
+- (void)loader:(MrdIconLoader*)loader didFailToLoadContentForCells:(NSArray*)cells
+{
+	for (id cell in cells) {
+		NSLog(@"---- The content is missing for iconCell:%p, loader:%p", cell,  loader);
+	}
+}
+
+- (BOOL)loader:(MrdIconLoader*)loader willHandleTapOnCell:(MrdIconCell*)aCell
+{
+	NSLog(@"---- loader:%p willHandleTapOnCell:%@", loader, aCell);
+	return YES;
+}
+
+- (void)loader:(MrdIconLoader*)loader willOpenURL:(NSURL*)url cell:(MrdIconCell*)aCell
+{
+	NSLog(@"---- loader:%p willOpenURL:%@ cell:%@", loader, [url absoluteString], aCell);
+}
 
 @end

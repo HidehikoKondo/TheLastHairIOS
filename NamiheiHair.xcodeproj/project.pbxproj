@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06A58AFA1748CD88000C7FEA /* lineButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A58AF91748CD88000C7FEA /* lineButton.png */; };
 		06C7B453171147B3001783D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06C7B452171147B3001783D2 /* UIKit.framework */; };
 		06C7B455171147B3001783D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06C7B454171147B3001783D2 /* Foundation.framework */; };
 		06C7B457171147B3001783D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06C7B456171147B3001783D2 /* CoreGraphics.framework */; };
@@ -59,6 +60,9 @@
 		06C7B4E21711C5DE001783D2 /* unplug.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 06C7B4DB1711C5DE001783D2 /* unplug.mp3 */; };
 		06C7B4E41711C649001783D2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06C7B4E31711C649001783D2 /* AudioToolbox.framework */; };
 		06C7B4E61711C996001783D2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06C7B4E51711C996001783D2 /* AVFoundation.framework */; };
+		06DD75821742A76B00BD7EF1 /* libBead.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 06DD75811742A76B00BD7EF1 /* libBead.a */; };
+		06DD75841742A7FA00BD7EF1 /* MrdIconSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06DD75831742A7FA00BD7EF1 /* MrdIconSDK.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		06DD75861742A84C00BD7EF1 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06DD75851742A84C00BD7EF1 /* CFNetwork.framework */; };
 		06F1776A173FD80300376A7B /* libAdStir-iAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F17769173FD80300376A7B /* libAdStir-iAd.a */; };
 		06F1776C173FD81300376A7B /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F1776B173FD81300376A7B /* iAd.framework */; };
 		06FDA2B2171AED3800F09F33 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FDA2B1171AED3800F09F33 /* GameViewController.m */; };
@@ -70,6 +74,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06A58AF91748CD88000C7FEA /* lineButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lineButton.png; sourceTree = "<group>"; };
 		06C7B44F171147B3001783D2 /* TheLastHair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheLastHair.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06C7B452171147B3001783D2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		06C7B454171147B3001783D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -133,6 +138,10 @@
 		06C7B4DB1711C5DE001783D2 /* unplug.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = unplug.mp3; sourceTree = "<group>"; };
 		06C7B4E31711C649001783D2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		06C7B4E51711C996001783D2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		06DD75801742A76B00BD7EF1 /* Bead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bead.h; sourceTree = "<group>"; };
+		06DD75811742A76B00BD7EF1 /* libBead.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBead.a; sourceTree = "<group>"; };
+		06DD75831742A7FA00BD7EF1 /* MrdIconSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MrdIconSDK.framework; sourceTree = "<group>"; };
+		06DD75851742A84C00BD7EF1 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		06F17769173FD80300376A7B /* libAdStir-iAd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libAdStir-iAd.a"; sourceTree = "<group>"; };
 		06F1776B173FD81300376A7B /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		06FDA2B0171AED3800F09F33 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
@@ -150,6 +159,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06DD75861742A84C00BD7EF1 /* CFNetwork.framework in Frameworks */,
 				06F1776C173FD81300376A7B /* iAd.framework in Frameworks */,
 				06C7B4E61711C996001783D2 /* AVFoundation.framework in Frameworks */,
 				06C7B4E41711C649001783D2 /* AudioToolbox.framework in Frameworks */,
@@ -171,6 +181,8 @@
 				06C7B49617114B20001783D2 /* libAdStir-AMoAD.a in Frameworks */,
 				06C7B49817114B47001783D2 /* libAMoAd.a in Frameworks */,
 				06F1776A173FD80300376A7B /* libAdStir-iAd.a in Frameworks */,
+				06DD75821742A76B00BD7EF1 /* libBead.a in Frameworks */,
+				06DD75841742A7FA00BD7EF1 /* MrdIconSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +213,8 @@
 		06C7B451171147B3001783D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				06DD75851742A84C00BD7EF1 /* CFNetwork.framework */,
+				06DD75831742A7FA00BD7EF1 /* MrdIconSDK.framework */,
 				06F1776B173FD81300376A7B /* iAd.framework */,
 				06C7B4E51711C996001783D2 /* AVFoundation.framework */,
 				06C7B4E31711C649001783D2 /* AudioToolbox.framework */,
@@ -256,6 +270,7 @@
 		06C7B475171147CB001783D2 /* ad */ = {
 			isa = PBXGroup;
 			children = (
+				06DD757F1742A75900BD7EF1 /* bead */,
 				06F17768173FD7EE00376A7B /* iAd */,
 				06C7B49417114AF6001783D2 /* Amoad */,
 				06C7B49317114AEA001783D2 /* Adstir */,
@@ -308,6 +323,7 @@
 		06C7B49917114ECC001783D2 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				06A58AF91748CD88000C7FEA /* lineButton.png */,
 				06FF4542171D997400907758 /* icon.png */,
 				06FF4543171D997400907758 /* icon@2x.png */,
 				06C7B49A17114FC1001783D2 /* bakamon.png */,
@@ -342,6 +358,15 @@
 				06C7B4DB1711C5DE001783D2 /* unplug.mp3 */,
 			);
 			path = sound;
+			sourceTree = "<group>";
+		};
+		06DD757F1742A75900BD7EF1 /* bead */ = {
+			isa = PBXGroup;
+			children = (
+				06DD75801742A76B00BD7EF1 /* Bead.h */,
+				06DD75811742A76B00BD7EF1 /* libBead.a */,
+			);
+			name = bead;
 			sourceTree = "<group>";
 		};
 		06F17768173FD7EE00376A7B /* iAd */ = {
@@ -437,6 +462,7 @@
 				06FF4547171D998F00907758 /* Default.png in Resources */,
 				06FF4549171D999300907758 /* Default@2x.png in Resources */,
 				06FF454B171D999800907758 /* Default-568h@2x.png in Resources */,
+				06A58AFA1748CD88000C7FEA /* lineButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,7 +517,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: HIDEHIKO KONDO (RKVXEJV6P7)";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -507,7 +533,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "3CB13BDF-9886-4DED-B36A-CA7E317A4CB2";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -524,7 +550,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: HIDEHIKO KONDO";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -533,7 +559,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "555C17A1-7723-4389-865F-B268840D63C2";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -542,6 +567,11 @@
 		06C7B473171147B3001783D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Desktop/ast-ios-sdk_v1.2.0/Ast-Icon-iOS-SDK-1.2.0\"",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TheLastHair/TheLastHair-Prefix.pch";
 				INFOPLIST_FILE = "TheLastHair/TheLastHair-Info.plist";
@@ -559,6 +589,11 @@
 		06C7B474171147B3001783D2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Desktop/ast-ios-sdk_v1.2.0/Ast-Icon-iOS-SDK-1.2.0\"",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TheLastHair/TheLastHair-Prefix.pch";
 				INFOPLIST_FILE = "TheLastHair/TheLastHair-Info.plist";

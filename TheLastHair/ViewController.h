@@ -19,5 +19,7 @@
 @property (nonatomic, retain) AdstirView* adview; //プロパティーで宣言すると、管理が簡単になります。
 - (IBAction)tweetButton:(id)sender;
 - (IBAction)likeButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *appsButton;
+- (IBAction)lineButton:(id)sender;
 
 @end

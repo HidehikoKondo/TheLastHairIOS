@@ -9,6 +9,9 @@
 #import "GameViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <Social/Social.h>
+#import "Bead.h"
+#import <MrdIconSDK/MrdIconSDK.h>
+
 #define MAXHAIR     999999999  //最大値制限
 #define ANGRY       250         //怒られる確率
 #define COMBO       100         //海平コンボの確率
@@ -27,8 +30,13 @@
     NSUserDefaults *score;  //スコア保存用
     NSUserDefaults *playCount;  //ゲームをプレイした回数　レビュー以来のアラートの表示に利用
     int playCountBefore;        //プレイ回数の前回値
+    
 }
+@property (nonatomic, retain) MrdIconLoader* iconLoader;//アスタ
 
+@end
+
+@interface GameViewController(MrdIconLoaderDelegate)<MrdIconLoaderDelegate>
 @end
 
 @implementation GameViewController
@@ -93,6 +101,9 @@
     
     //ランダム値生成
     srand(time(nil));
+    
+    //アスタ表示
+    [self displayIconAdd];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -108,7 +119,8 @@
     CGRect rect = sc.bounds;
     NSLog(@"%.1f, %.1f", rect.size.width, rect.size.height);
     
-    self.adview = [[AdstirView alloc]initWithOrigin:CGPointMake(0, rect.size.height-50)];
+//    self.adview = [[AdstirView alloc]initWithOrigin:CGPointMake(0, rect.size.height-50)];
+    self.adview = [[AdstirView alloc]initWithOrigin:CGPointZero];
     self.adview.media = @"MEDIA-f5977393";
 	self.adview.spot = 1;
 	self.adview.rootViewController = self;
@@ -166,9 +178,13 @@
                               otherButtonTitles:@"レビューを書く",nil
                               ];
         [alert show];
+    }else{
+       //アニメーションが終わった後に広告表示
+       NSTimer *tm = [NSTimer scheduledTimerWithTimeInterval:1.1f target:self selector:@selector(displayBead:) userInfo:nil repeats:NO];
+
     }
     
-    
+   
     //記録を表示
     highScoreLabel.text = [NSString stringWithFormat:@"最高記録：%d本抜き",[score integerForKey:@"SCORE"]];
     nowScoreLabel.text = [NSString stringWithFormat:@"今回記録：%d本抜き",unplugedNumber];
@@ -198,7 +214,7 @@
     [UIView beginAnimations:nil context:nil];                   // 条件指定開始
     [UIView setAnimationDuration:1.0];                          // 2秒かけてアニメーションを終了させる
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];   // アニメーションは一定速度
-    bakamonImageView.frame = CGRectMake(10, 80, 302, 60);            // 終了位置を200,400の位置に指定する
+    bakamonImageView.frame = CGRectMake(10, 100, 300, 60);            // 終了位置を200,400の位置に指定する
     [UIView commitAnimations];                                  // アニメーション開始！
     
     //スコア表示のアニメーション
@@ -206,11 +222,20 @@
     [UIView setAnimationDuration:1.0];                          // 2秒かけてアニメーションを終了させる
     [UIView setAnimationDelay:0.2];                             // 3秒後にアニメーションを開始する
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];   // アニメーションは一定速度
-    gameOverView.center = CGPointMake(160, 200);                // 終了位置を200,400の位置に指定する
+    gameOverView.center = CGPointMake(160, 300);                // 終了位置を200,400の位置に指定する
     [UIView commitAnimations];                                  // アニメーション開始！
     
 //    [self.adview setCenter:CGPointMake(160,25)];
+   
+
     
+}
+
+-(void)displayBead:(NSTimer*)timer{
+ 
+    //bead表示
+    NSLog(@"bead表示");
+   [[Bead sharedInstance] showWithSID:@"240de5cb325a1c9dfe304691856fe1f5ac7db3f7c4e52001"];
     
 }
 
@@ -287,7 +312,7 @@
         
         
         //毛が抜けます　Y座標が40以下になった、または抜いた後は毛の高さを70に固定（のばしていた画像を一定の大きさに固定する事によって抜けたように見せる）
-        if(hairImageView.frame.origin.y <=40 || nuitaFlg == 1){
+        if(hairImageView.frame.origin.y <=50 || nuitaFlg == 1){
             [hairImageView setFrame:CGRectMake(hairImageView.frame.origin.x,hairImageView.frame.origin.y,hairImageView.frame.size.width,70)];
             NSLog(@"100以下だよ");
             nuitaFlg = 1;
@@ -351,7 +376,7 @@
     
     //指を非表示
     fingerImageView.hidden = YES;
-    [fingerImageView setCenter:CGPointMake(214,38)];
+    [fingerImageView setCenter:CGPointMake(214,88)];
     
     //ゲームオーバーじゃないときだけ実行
     if(gameoverFlg == 0){
@@ -377,22 +402,22 @@
             }
             
             //アニメーション ニョキッと生えてきます
-            [hairImageView setFrame:CGRectMake(145, 170, 25, 20)];
+            [hairImageView setFrame:CGRectMake(145, 230, 25, 10)];
             [UIView beginAnimations:nil context:nil];
             [UIView setAnimationDuration:0.4];
-            [hairImageView setFrame:CGRectMake(145, 130, 25, 60)];
+            [hairImageView setFrame:CGRectMake(145, 180, 25, 60)];
             [UIView commitAnimations];
         }else{
             //失敗再生
             [self playSound:@"unplug"];
             
             //アニメーション 上下にふわふわ動きます。
-            [hairImageView setFrame:CGRectMake(145, 150, 25, 40)];
+            [hairImageView setFrame:CGRectMake(145, 200, 25, 40)];
             [UIView beginAnimations:nil context:nil];
             [UIView setAnimationDuration:0.07];
             [UIView setAnimationRepeatCount:4];
             [UIView setAnimationRepeatAutoreverses:YES];
-            [hairImageView setFrame:CGRectMake(145, 130, 25, 60)];
+            [hairImageView setFrame:CGRectMake(145, 180, 25, 60)];
             [UIView commitAnimations];
         }
         //抜いたフラグをたてる
@@ -409,11 +434,77 @@
 }
 
 
+//アスタ広告
+-(void)displayIconAdd{
+    //表示するY座標をUDONKOAPPSボタンと同じにする
+    NSInteger iconY = 130;
+    
+    // The array of points used as origin of icon frame
+	CGPoint origins[] = {
+		{0, iconY},
+        {245, iconY},
+        {0,iconY+100},
+        {245,iconY+100}
+    };
+    
+    MrdIconLoader* iconLoader = [[MrdIconLoader alloc]init]; // (1)
+    self.iconLoader = iconLoader;
+	iconLoader.delegate = self;
+    //	IF_NO_ARC([iconLoader release];)
+    
+    
+    
+    for (int i=0; i < 4; i++)
+	{
+        CGRect frame;                                                       //frame
+        frame.origin = origins[i];                                          //位置
+        frame.size = kMrdIconCell_DefaultViewSize;                          //サイズ75x75
+        MrdIconCell* iconCell = [[MrdIconCell alloc]initWithFrame:frame];   //セル生成
+        [iconLoader addIconCell:iconCell];                                  //セル追加
+        [self.gameOverView addSubview:iconCell];                                    //セル配置
+        [iconLoader startLoadWithMediaCode: @"id570377317"];                //ID設定
+        _iconLoader = iconLoader;
+    }
+    
+}
+
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+@end
+
+
+////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - aster広告delegate
+@implementation GameViewController(MrdIconLoaderDelegate)
+
+- (void)loader:(MrdIconLoader*)loader didReceiveContentForCells:(NSArray *)cells
+{
+	for (id cell in cells) {
+		NSLog(@"---- The content loaded for iconCell:%p, loader:%p", cell,  loader);
+	}
+}
+
+- (void)loader:(MrdIconLoader*)loader didFailToLoadContentForCells:(NSArray*)cells
+{
+	for (id cell in cells) {
+		NSLog(@"---- The content is missing for iconCell:%p, loader:%p", cell,  loader);
+	}
+}
+
+- (BOOL)loader:(MrdIconLoader*)loader willHandleTapOnCell:(MrdIconCell*)aCell
+{
+	NSLog(@"---- loader:%p willHandleTapOnCell:%@", loader, aCell);
+	return YES;
+}
+
+- (void)loader:(MrdIconLoader*)loader willOpenURL:(NSURL*)url cell:(MrdIconCell*)aCell
+{
+	NSLog(@"---- loader:%p willOpenURL:%@ cell:%@", loader, [url absoluteString], aCell);
+}
+
 
 @end

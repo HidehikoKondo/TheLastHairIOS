@@ -28,5 +28,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *nowScoreLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *fingerImageView;
 - (IBAction)backButton:(id)sender;
-
+-(void)displayBead:(NSTimer*)timer;
 @end
