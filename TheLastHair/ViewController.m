@@ -11,6 +11,8 @@
 #import <Social/Social.h>
 #import <Twitter/TWTweetComposeViewController.h>
 #import <MrdIconSDK/MrdIconSDK.h>
+#import <GameFeatKit/GFView.h>
+#import <GameFeatKit/GFController.h>
 
 
 #define TWEETTITLE   @"Twitterにサインインしてね"
@@ -23,7 +25,8 @@
 
 
 @interface ViewController (){
-    NSUserDefaults *score;  //スコア保存用
+   NSUserDefaults *score;  //スコア保存用
+   NSUserDefaults *newapp; //新アプリダイアログの表示判断用。xmlのnoを保存。
     
 }
 @property (nonatomic, retain) MrdIconLoader* iconLoader;
@@ -34,6 +37,18 @@
 @end
 
 @implementation ViewController
+NSString *nowTagStr;
+NSString *txtBuffer;
+
+NSString *strNo;
+NSString *strDate;
+NSString *strMessage;
+NSString *strTitle;
+NSString *strUrl;
+bool error = NO;
+
+
+
 @synthesize iconLoader = _iconLoader;
 
 - (void)viewDidLoad
@@ -50,23 +65,26 @@
     
     //スコアを読み出し
     score = [NSUserDefaults standardUserDefaults];
-    
-    
+    //ダウンロードダイアログ用のuserdefaults読み出し
+   newapp = [NSUserDefaults standardUserDefaults];
+
     //アスタ表示
     [self displayIconAdd];
-    
-    
-    
+   
+   //xml読み込み
+   [self loadDownloadXML];
+   
 }
 
 -(void)displayIconAdd{
     //表示するY座標をUDONKOAPPSボタンと同じにする
-    NSInteger iconY = _appsButton.frame.origin.y;
+    NSInteger iconY = _gamefeatButton.frame.origin.y;
     
     // The array of points used as origin of icon frame
 	CGPoint origins[] = {
-		{23, iconY},
-        {222, iconY}
+		{85, iconY},
+        {160, iconY},
+        {240, iconY}
     };
     
     MrdIconLoader* iconLoader = [[MrdIconLoader alloc]init]; // (1)
@@ -76,7 +94,7 @@
 
     
     
-    for (int i=0; i < 2; i++)
+    for (int i=0; i < 3; i++)
 	{
         CGRect frame;                                                       //frame
         frame.origin = origins[i];                                          //位置
@@ -347,6 +365,8 @@ BOOL isGameCenterAPIAvailable()
 
 - (void)viewDidUnload {
     [self setAppsButton:nil];
+    [self setGamefeatButton:nil];
+    [self setGamefeatImage:nil];
     [super viewDidUnload];
 }
 - (IBAction)lineButton:(id)sender {
@@ -384,6 +404,156 @@ BOOL isGameCenterAPIAvailable()
         [alert show];
     }
 }
+
+//gamefeatを表示
+- (IBAction)displayGameFeat:(id)sender {
+    [GFController showGF:self site_id:@"1034"];
+}
+
+
+#pragma mark - 新アプリダイアログ
+
+
+
+
+-(void)loadDownloadXML{
+   //ダウンロードしてねダイアログのメッセージを取得
+   NSURL *URL = [NSURL URLWithString:@"http://coco8.sakura.ne.jp/udonko/apps/dlpopup/popup.xml"];
+   NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithContentsOfURL:URL];
+   xmlParser.delegate = self;
+   [xmlParser parse];
+   
+   //非同期通信
+   /*
+    NSString *urlstring = @"http://saryou.jp";
+    NSURL *url = [NSURL URLWithString:urlstring];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSURLConnection *connection = [NSURLConnection connectionWithRequest:request delegate:self];
+    [connection start];
+    */
+   //日付とナンバーを取れるようにしておいたので、これで何かしらの判定をしてから
+   //showDownloadDialogを呼び出すようにしましょう。
+   //このままだと、毎回呼び出されちゃうのでうっとーしー。
+   //ここは要検討
+   NSLog(@"NO:%d userdefaultsのDLNO:%d",strNo.intValue,[newapp integerForKey:@"DLNO"]);
+   NSLog(@"date:%@",strDate);
+   
+   //xmlパースでエラーがなければダイアログ表示
+   if(!error){
+      
+      //noを比較して、保存してあるnoと異なればxmlが更新されたものと見なしてダイアログを表示する。
+      //１度表示したら更新されるまで表示しないようにする。
+      if(strNo.intValue == [newapp integerForKey:@"DLNO"]){
+         //なにもしない
+      }else{
+         //ダイアログを表示
+         [newapp setInteger:strNo.intValue forKey:@"DLNO"];
+         NSLog(@"DLNO保存:%d",strNo.intValue);
+         [newapp synchronize];
+         [self showDownloadDialog];
+      }
+   }
+}
+
+//パーススタート
+-(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
+   if([elementName isEqualToString:@"no"]){
+      nowTagStr = [NSString stringWithString:elementName];
+      txtBuffer = [NSString stringWithFormat:@"%@",@""];
+   }else if([elementName isEqualToString:@"title"]){
+      nowTagStr = [NSString stringWithString:elementName];
+      txtBuffer = [NSString stringWithFormat:@"%@",@""];
+   }else if([elementName isEqualToString:@"message"]){
+      nowTagStr = [NSString stringWithString:elementName];
+      txtBuffer = [NSString stringWithFormat:@"%@",@""];
+   }else if([elementName isEqualToString:@"url"]){
+      nowTagStr = [NSString stringWithString:elementName];
+      txtBuffer = [NSString stringWithFormat:@"%@",@""];
+   }else if([elementName isEqualToString:@"date"]){
+      nowTagStr = [NSString stringWithString:elementName];
+      txtBuffer = [NSString stringWithFormat:@"%@",@""];
+   }
+}
+
+//エレメント内に文字列を発見！
+-(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
+   if([nowTagStr isEqualToString:@"no"]){
+      txtBuffer = [txtBuffer stringByAppendingFormat:@"%@",string];
+   }else if([nowTagStr isEqualToString:@"title"]){
+      txtBuffer = [txtBuffer stringByAppendingFormat:@"%@",string];
+   }else if([nowTagStr isEqualToString:@"message"]){
+      txtBuffer = [txtBuffer stringByAppendingFormat:@"%@",string];
+   }else if([nowTagStr isEqualToString:@"url"]){
+      txtBuffer = [txtBuffer stringByAppendingFormat:@"%@",string];
+   }else if([nowTagStr isEqualToString:@"date"]){
+      txtBuffer = [txtBuffer stringByAppendingFormat:@"%@",string];
+   }
+}
+
+//エレメントの読み込み終了時のイベント
+-(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName{
+   if([elementName isEqualToString:@"no"]){
+      strNo = [NSString stringWithFormat:@"%@",txtBuffer];
+   }else if([elementName isEqualToString:@"title"]){
+      strTitle = [NSString stringWithFormat:@"%@",txtBuffer];
+   }else if([elementName isEqualToString:@"message"]){
+      strMessage = [NSString stringWithFormat:@"%@",txtBuffer];
+   }else if([elementName isEqualToString:@"url"]){
+      strUrl = [NSString stringWithFormat:@"%@",txtBuffer];
+   }else if([elementName isEqualToString:@"date"]){
+      strDate = [NSString stringWithFormat:@"%@",txtBuffer];
+   }
+}
+
+//パース完了
+-(void)parserDidEndDocument:(NSXMLParser *)parser{
+   nowTagStr = [NSString stringWithFormat:@"%@",@""];
+}
+
+//パースエラー
+- (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
+	NSLog(@"エラーが発生しました");
+   //error発生した場合はerrorをYESにしてダウンロードダイアログを表示しないようにする
+   //主に通信切断時に呼び出されると思う。
+   error = YES;
+}
+
+
+
+
+- (void)showDownloadDialog
+{
+   // 生成例
+   UIAlertView *alert = [[UIAlertView alloc] init];
+   
+   // 生成と同時に各種設定も完了させる例
+   alert =[[UIAlertView alloc]
+           initWithTitle:strTitle
+           message:strMessage
+           delegate:self
+           cancelButtonTitle:@"あとで"
+           otherButtonTitles:@"ダウンロード", nil];
+   [alert show];
+}
+
+// アラートのボタンが押された時に呼ばれるデリゲート
+-(void)alertView:(UIAlertView*)alertView
+clickedButtonAtIndex:(NSInteger)buttonIndex {
+   
+   switch (buttonIndex) {
+      case 0:
+         //１番目のボタンが押されたときの処理を記述する
+         NSLog(@"いいえ");
+         break;
+      case 1:
+         //２番目のボタンが押されたときの処理を記述する
+         NSLog(@"ダウンロード");
+         NSURL *url= [NSURL URLWithString:strUrl];
+         [[UIApplication sharedApplication] openURL:url];
+         break;
+   }
+}
+
 @end
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -395,6 +565,10 @@ BOOL isGameCenterAPIAvailable()
 	for (id cell in cells) {
 		NSLog(@"---- The content loaded for iconCell:%p, loader:%p", cell,  loader);
 	}
+    
+    //アスタが表示されたらgamefeatも表示する。
+    [_gamefeatButton setHidden:false];
+    [_gamefeatImage setHidden:false];
 }
 
 - (void)loader:(MrdIconLoader*)loader didFailToLoadContentForCells:(NSArray*)cells
@@ -402,16 +576,26 @@ BOOL isGameCenterAPIAvailable()
 	for (id cell in cells) {
 		NSLog(@"---- The content is missing for iconCell:%p, loader:%p", cell,  loader);
 	}
+    //アスタが表示されたらgamefeatも表示する。
+    [_gamefeatButton setHidden:false];
+    [_gamefeatImage setHidden:false];
 }
 
 - (BOOL)loader:(MrdIconLoader*)loader willHandleTapOnCell:(MrdIconCell*)aCell
 {
+    //アスタが表示されたらgamefeatも表示する。
+    [_gamefeatButton setHidden:false];
+    [_gamefeatImage setHidden:false];
 	NSLog(@"---- loader:%p willHandleTapOnCell:%@", loader, aCell);
 	return YES;
+    
 }
 
 - (void)loader:(MrdIconLoader*)loader willOpenURL:(NSURL*)url cell:(MrdIconCell*)aCell
 {
+    //アスタが表示されたらgamefeatも表示する。
+    [_gamefeatButton setHidden:false];
+    [_gamefeatImage setHidden:false];
 	NSLog(@"---- loader:%p willOpenURL:%@ cell:%@", loader, [url absoluteString], aCell);
 }
 
