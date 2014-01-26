@@ -17,6 +17,8 @@
 
 // Where the icon is to be displayed.
 @property (assign, nonatomic) CGRect iconFrame;
+@property (retain, nonatomic) UIColor* iconShadowColor;
+
 // Where the title of app is to be displayed. Set ZeroRect to disable showing.
 @property (assign, nonatomic) CGRect titleFrame;
 

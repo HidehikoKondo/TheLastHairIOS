@@ -50,6 +50,12 @@
 // The media code currently used. Returns nil when not started. 
 - (NSString*)mediaCode;
 
+// Enable or disable cache http response using NSURLCache.
+// YES is set by default.
+// To purge cache, call this method with NO
+//  and [[NSURLCache sharedURLCache]removeAllCachedResponses];
++ (void)setURLCacheEnabled:(BOOL)useCache;
+
 @end
 
 ///////////////////////////////////////////////////////////////////////////
