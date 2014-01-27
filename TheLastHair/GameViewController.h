@@ -10,9 +10,10 @@
 #import <AVFoundation/AVFoundation.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import "AdstirView.h"
+#import "GAITrackedViewController.h"
 
 
-@interface GameViewController : UIViewController<AdstirViewDelegate>{
+@interface GameViewController : GAITrackedViewController<AdstirViewDelegate>{
 
 }
 @property (nonatomic, retain) AdstirView* adview; //プロパティーで宣言すると、管理が簡単になります。

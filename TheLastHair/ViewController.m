@@ -13,6 +13,8 @@
 #import <MrdIconSDK/MrdIconSDK.h>
 #import <GameFeatKit/GFView.h>
 #import <GameFeatKit/GFController.h>
+#import "GAI.h"
+#import <MrdAstaWall/MrdAstaWall.h>
 
 
 #define TWEETTITLE   @"Twitterにサインインしてね"
@@ -55,6 +57,10 @@ bool error = NO;
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    //google analytics
+    self.screenName = @"TopPage";
+    
     
     //ゲームセンター
     NSLog(@"ゲームセンター対応チェック%d",isGameCenterAPIAvailable());
@@ -554,6 +560,22 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    }
 }
 
+
+-(IBAction)displayAsterWall:(id)sender{
+    // 基本的なウォールの表示方法は以下のようになります。
+    // ウォールを表示したいタイミング(ボタンをタップした際の処理など)で記述して下さい。
+    NSBundle *mrdAstaWallBundle = [NSBundle bundleWithPath:[MrdAstaWall frameworkBundlePath]]; // (1)
+    MrdAstaWallViewController *vc = [[MrdAstaWallViewController alloc]initWithNibName:@"MrdAstaWallViewController" bundle:mrdAstaWallBundle]; // (2)
+    [vc setMediaCode:@"id570377317"]; // (3)
+    if ([self respondsToSelector:@selector(presentViewController:animated:completion:)]) {
+        [self presentViewController:vc animated:YES completion:nil]; // (4)
+    } else { //iOS5未満
+        [self presentModalViewController:vc animated:YES]; // (5)
+    }
+ //   [vc release]; // (6)
+}
+
+
 @end
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -598,5 +620,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
     [_gamefeatImage setHidden:false];
 	NSLog(@"---- loader:%p willOpenURL:%@ cell:%@", loader, [url absoluteString], aCell);
 }
+
 
 @end

@@ -64,7 +64,15 @@
 		06C7B4E21711C5DE001783D2 /* unplug.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 06C7B4DB1711C5DE001783D2 /* unplug.mp3 */; };
 		06C7B4E41711C649001783D2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06C7B4E31711C649001783D2 /* AudioToolbox.framework */; };
 		06C7B4E61711C996001783D2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06C7B4E51711C996001783D2 /* AVFoundation.framework */; };
-		06DD75841742A7FA00BD7EF1 /* MrdIconSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06DD75831742A7FA00BD7EF1 /* MrdIconSDK.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		06DA972318955FC70013E59D /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 06DA972218955FC70013E59D /* libGoogleAnalyticsServices.a */; };
+		06DA972C189560D70013E59D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 06DA972B189560D60013E59D /* libz.dylib */; };
+		06DA972E189561250013E59D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06DA972D189561250013E59D /* CoreData.framework */; };
+		06DA973018956D0E0013E59D /* MrdAstaWall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06DA972F18956D0D0013E59D /* MrdAstaWall.framework */; };
+		06DA973218956D6F0013E59D /* MrdAstaWallRes.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 06DA973118956D6F0013E59D /* MrdAstaWallRes.bundle */; };
+		06DA973318956DA80013E59D /* MrdAstaWallRes.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = 06DA973118956D6F0013E59D /* MrdAstaWallRes.bundle */; };
+		06DA9735189570180013E59D /* MrdIconSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06DA9734189570180013E59D /* MrdIconSDK.framework */; };
+		06DA973D189578030013E59D /* FelloPush.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 06DA9738189578030013E59D /* FelloPush.bundle */; };
+		06DA973E189578030013E59D /* FelloPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06DA9739189578030013E59D /* FelloPush.framework */; };
 		06DD75861742A84C00BD7EF1 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06DD75851742A84C00BD7EF1 /* CFNetwork.framework */; };
 		06EC2A2D176D99E400B0BE84 /* GameFeatKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06EC2A2C176D99E400B0BE84 /* GameFeatKit.framework */; };
 		06EC2A2F176D99F800B0BE84 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06EC2A2E176D99F800B0BE84 /* CoreTelephony.framework */; };
@@ -163,7 +171,20 @@
 		06C7B4DB1711C5DE001783D2 /* unplug.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = unplug.mp3; sourceTree = "<group>"; };
 		06C7B4E31711C649001783D2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		06C7B4E51711C996001783D2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		06DD75831742A7FA00BD7EF1 /* MrdIconSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MrdIconSDK.framework; sourceTree = "<group>"; };
+		06DA972218955FC70013E59D /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		06DA972518955FDC0013E59D /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		06DA972618955FDC0013E59D /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		06DA972718955FDC0013E59D /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		06DA972818955FDC0013E59D /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		06DA972918955FDC0013E59D /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		06DA972A18955FDC0013E59D /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		06DA972B189560D60013E59D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		06DA972D189561250013E59D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		06DA972F18956D0D0013E59D /* MrdAstaWall.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MrdAstaWall.framework; sourceTree = "<group>"; };
+		06DA973118956D6F0013E59D /* MrdAstaWallRes.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MrdAstaWallRes.bundle; sourceTree = "<group>"; };
+		06DA9734189570180013E59D /* MrdIconSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MrdIconSDK.framework; sourceTree = "<group>"; };
+		06DA9738189578030013E59D /* FelloPush.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FelloPush.bundle; sourceTree = "<group>"; };
+		06DA9739189578030013E59D /* FelloPush.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FelloPush.framework; sourceTree = "<group>"; };
 		06DD75851742A84C00BD7EF1 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		06EC2A2C176D99E400B0BE84 /* GameFeatKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GameFeatKit.framework; sourceTree = "<group>"; };
 		06EC2A2E176D99F800B0BE84 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -199,17 +220,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06EC2A31176D9A0300B0BE84 /* StoreKit.framework in Frameworks */,
+				06DA973318956DA80013E59D /* MrdAstaWallRes.bundle in Frameworks */,
+				06DA972E189561250013E59D /* CoreData.framework in Frameworks */,
+				06DA973E189578030013E59D /* FelloPush.framework in Frameworks */,
+				06DA972C189560D70013E59D /* libz.dylib in Frameworks */,
 				06C7B457171147B3001783D2 /* CoreGraphics.framework in Frameworks */,
 				06B75DFC17D4EEEB003173A8 /* CoreMotion.framework in Frameworks */,
 				06B75DFA17D4EEE4003173A8 /* ImageIO.framework in Frameworks */,
-				06EC2A31176D9A0300B0BE84 /* StoreKit.framework in Frameworks */,
 				06EC2A2F176D99F800B0BE84 /* CoreTelephony.framework in Frameworks */,
 				06DD75861742A84C00BD7EF1 /* CFNetwork.framework in Frameworks */,
 				06F1776C173FD81300376A7B /* iAd.framework in Frameworks */,
 				06C7B4E61711C996001783D2 /* AVFoundation.framework in Frameworks */,
 				06C7B4E41711C649001783D2 /* AudioToolbox.framework in Frameworks */,
 				06C7B4D21711C511001783D2 /* GameKit.framework in Frameworks */,
-				06DD75841742A7FA00BD7EF1 /* MrdIconSDK.framework in Frameworks */,
+				06DA973018956D0E0013E59D /* MrdAstaWall.framework in Frameworks */,
 				06C7B4D01711C509001783D2 /* Social.framework in Frameworks */,
 				06C7B4CE1711C4FA001783D2 /* Twitter.framework in Frameworks */,
 				06C7B48C171149D7001783D2 /* Security.framework in Frameworks */,
@@ -218,10 +243,12 @@
 				06C7B47E1711482E001783D2 /* CoreLocation.framework in Frameworks */,
 				06C7B47C17114823001783D2 /* QuartzCore.framework in Frameworks */,
 				06C7B47A1711481B001783D2 /* MediaPlayer.framework in Frameworks */,
+				06DA9735189570180013E59D /* MrdIconSDK.framework in Frameworks */,
 				06C7B453171147B3001783D2 /* UIKit.framework in Frameworks */,
 				06C7B455171147B3001783D2 /* Foundation.framework in Frameworks */,
 				06C7B4781711480C001783D2 /* libAdStir.a in Frameworks */,
 				06C7B48E171149ED001783D2 /* libAdStir-nend.a in Frameworks */,
+				06DA972318955FC70013E59D /* libGoogleAnalyticsServices.a in Frameworks */,
 				06C7B49117114A02001783D2 /* libNendAd.a in Frameworks */,
 				06C7B49617114B20001783D2 /* libAdStir-AMoAD.a in Frameworks */,
 				06C7B49817114B47001783D2 /* libAMoAd.a in Frameworks */,
@@ -258,13 +285,18 @@
 		06C7B451171147B3001783D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				06DA9736189578030013E59D /* NotificationsSDK */,
+				06DA9734189570180013E59D /* MrdIconSDK.framework */,
+				06DA973118956D6F0013E59D /* MrdAstaWallRes.bundle */,
+				06DA972F18956D0D0013E59D /* MrdAstaWall.framework */,
+				06DA972D189561250013E59D /* CoreData.framework */,
+				06DA972B189560D60013E59D /* libz.dylib */,
 				06B75DFB17D4EEEB003173A8 /* CoreMotion.framework */,
 				06B75DF917D4EEE4003173A8 /* ImageIO.framework */,
 				06EC2A30176D9A0300B0BE84 /* StoreKit.framework */,
 				06EC2A2E176D99F800B0BE84 /* CoreTelephony.framework */,
 				06EC2A2C176D99E400B0BE84 /* GameFeatKit.framework */,
 				06DD75851742A84C00BD7EF1 /* CFNetwork.framework */,
-				06DD75831742A7FA00BD7EF1 /* MrdIconSDK.framework */,
 				06F1776B173FD81300376A7B /* iAd.framework */,
 				06C7B4E51711C996001783D2 /* AVFoundation.framework */,
 				06C7B4E31711C649001783D2 /* AudioToolbox.framework */,
@@ -320,6 +352,7 @@
 		06C7B475171147CB001783D2 /* ad */ = {
 			isa = PBXGroup;
 			children = (
+				06DA972118955FB50013E59D /* GoogleAnalytics */,
 				06DD757F1742A75900BD7EF1 /* bead */,
 				06F17768173FD7EE00376A7B /* iAd */,
 				06C7B49417114AF6001783D2 /* Amoad */,
@@ -413,6 +446,46 @@
 			path = sound;
 			sourceTree = "<group>";
 		};
+		06DA972118955FB50013E59D /* GoogleAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				06DA972418955FDC0013E59D /* Library */,
+				06DA972218955FC70013E59D /* libGoogleAnalyticsServices.a */,
+			);
+			name = GoogleAnalytics;
+			sourceTree = "<group>";
+		};
+		06DA972418955FDC0013E59D /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				06DA972518955FDC0013E59D /* GAI.h */,
+				06DA972618955FDC0013E59D /* GAIDictionaryBuilder.h */,
+				06DA972718955FDC0013E59D /* GAIFields.h */,
+				06DA972818955FDC0013E59D /* GAILogger.h */,
+				06DA972918955FDC0013E59D /* GAITrackedViewController.h */,
+				06DA972A18955FDC0013E59D /* GAITracker.h */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		06DA9736189578030013E59D /* NotificationsSDK */ = {
+			isa = PBXGroup;
+			children = (
+				06DA9737189578030013E59D /* Debug */,
+			);
+			name = NotificationsSDK;
+			path = TheLastHair/NotificationsSDK;
+			sourceTree = "<group>";
+		};
+		06DA9737189578030013E59D /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				06DA9738189578030013E59D /* FelloPush.bundle */,
+				06DA9739189578030013E59D /* FelloPush.framework */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
 		06DD757F1742A75900BD7EF1 /* bead */ = {
 			isa = PBXGroup;
 			children = (
@@ -478,6 +551,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = UDONKONET;
+				TargetAttributes = {
+					06C7B44E171147B3001783D2 = {
+						DevelopmentTeam = 7JKB5AMAKP;
+					};
+				};
 			};
 			buildConfigurationList = 06C7B44A171147B3001783D2 /* Build configuration list for PBXProject "NamiheiHair" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -507,6 +585,7 @@
 				06C7B46C171147B3001783D2 /* MainStoryboard.storyboard in Resources */,
 				06C7B4881711486A001783D2 /* CHANGELOG.md in Resources */,
 				06C7B48A1711486A001783D2 /* README.md in Resources */,
+				06DA973218956D6F0013E59D /* MrdAstaWallRes.bundle in Resources */,
 				06C7B4AD17114FC1001783D2 /* bakamon.png in Resources */,
 				06C7B4AE17114FC1001783D2 /* endbutton.png in Resources */,
 				06C7B4AF17114FC1001783D2 /* finger.png in Resources */,
@@ -547,6 +626,7 @@
 				06EC2A47176D9B9500B0BE84 /* gamefeat_overlay.html in Resources */,
 				06EC2A48176D9B9500B0BE84 /* gamefeat_overlay_close.png in Resources */,
 				06EC2A49176D9B9500B0BE84 /* gamefeat_overlay_l.png in Resources */,
+				06DA973D189578030013E59D /* FelloPush.bundle in Resources */,
 				06EC2A4A176D9B9500B0BE84 /* gamefeat_overlay_p.png in Resources */,
 				06EC2A4B176D9B9500B0BE84 /* gamefeat_rect_banner.png in Resources */,
 				06EC2A4C176D9B9500B0BE84 /* gamefeat_style.css in Resources */,
@@ -655,10 +735,14 @@
 		06C7B473171147B3001783D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: HIDEHIKO KONDO (RKVXEJV6P7)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: HIDEHIKO KONDO (RKVXEJV6P7)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)",
+					/Users/udonkonet/Dropbox/udonkonet/repository/TheLastHair,
+					/Users/udonkonet/Dropbox/udonkonet/repository/TheLastHair/TheLastHair/NotificationsSDK/Debug,
+					/Users/udonkonet/Dropbox/udonkonet/repository/TheLastHair/TheLastHair/NotificationsSDK/Release,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TheLastHair/TheLastHair-Prefix.pch";
@@ -666,13 +750,17 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/TheLastHair\"",
+					"\\\"$(SRCROOT)/TheLastHair\\\"",
+					/Users/udonkonet/Dropbox/udonkonet/repository/TheLastHair/TheLastHair,
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
+					"-framework",
+					FelloPush,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -681,10 +769,14 @@
 		06C7B474171147B3001783D2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)",
+					/Users/udonkonet/Dropbox/udonkonet/repository/TheLastHair,
+					/Users/udonkonet/Dropbox/udonkonet/repository/TheLastHair/TheLastHair/NotificationsSDK/Debug,
+					/Users/udonkonet/Dropbox/udonkonet/repository/TheLastHair/TheLastHair/NotificationsSDK/Release,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TheLastHair/TheLastHair-Prefix.pch";
@@ -692,13 +784,17 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/TheLastHair\"",
+					"\\\"$(SRCROOT)/TheLastHair\\\"",
+					/Users/udonkonet/Dropbox/udonkonet/repository/TheLastHair/TheLastHair,
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
+					"-framework",
+					FelloPush,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};

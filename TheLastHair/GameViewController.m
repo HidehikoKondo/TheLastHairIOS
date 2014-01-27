@@ -11,6 +11,7 @@
 #import <Social/Social.h>
 #import "Bead.h"
 #import <MrdIconSDK/MrdIconSDK.h>
+#import "GAI.h"
 
 #define MAXHAIR     999999999  //最大値制限
 #define ANGRY       250         //怒られる確率
@@ -64,6 +65,10 @@
 - (void)viewDidLoad
 {
    [super viewDidLoad];
+    
+    //google analytics
+    self.screenName = @"GameStart";
+    
 	// Do any additional setup after loading the view.
    //ゲームオーバー画面の角丸設定
    gameOverView.layer.cornerRadius = 10;
@@ -150,9 +155,10 @@
 
 #pragma mark - gameover
 -(void)gameover{
-   //指を非表示
-   
-   
+    //google analytics
+    self.screenName = @"GameOver";
+    
+    //指を非表示
    fingerImageView.hidden = YES;
    [fingerImageView setCenter:CGPointMake(214,38)];
    

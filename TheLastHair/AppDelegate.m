@@ -11,14 +11,49 @@
 
 @implementation AppDelegate
 
+
+//fello
+// デバイストークンを受信した際の処理
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)devToken
+{
+    // 渡ってきたデバイストークンを渡す
+    [KonectNotificationsAPI setupNotifications:devToken];
+}
+
+// プッシュ通知を受信した際の処理
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    // 渡ってきたuserInfoを渡す
+    [KonectNotificationsAPI processNotifications:userInfo];
+}
+
+// このメソッドで、プッシュ通知からの起動後の処理を行うことが出来る
+- (void)onLaunchFromNotification:(NSString *)notificationsId message:(NSString *)message extra:(NSDictionary *)extra
+{
+    NSLog(@"ここでextraの中身にひもづいたインセンティブの付与などを行うことが出来ます");
+}
+
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
    
    [Bead initializeAd];
    [[Bead sharedInstance] addSID:@"240de5cb325a1c9dfe304691856fe1f5ac7db3f7c4e52001" interval:4];
+
+    //googleanalytics
+    // Initialize tracker.
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-47478460-1"];
+
    
-   
+    
+    // サンドボックス環境に接続するならYES、本番環境に接続するならNO
+    BOOL isTest = YES;
+    [KonectNotificationsAPI initialize:self launchOptions:launchOptions appId:appId isTest:isTest];
+    
+    
+    
     return YES;
 }
 							

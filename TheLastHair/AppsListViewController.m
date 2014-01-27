@@ -8,7 +8,7 @@
 
 #import "AppsListViewController.h"
 #import <QuartzCore/QuartzCore.h>
-
+#import "GAI.h"
 
 #define APPLISTURL @"http://www.udonko.net/applist"  // アプリ一覧のURL
 @interface AppsListViewController ()
@@ -31,6 +31,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //google analytics
+    self.screenName = @"AppList";
+    
+    
+    
 	// Do any additional setup after loading the view.
     
     //インジケーターのビューの角丸設定

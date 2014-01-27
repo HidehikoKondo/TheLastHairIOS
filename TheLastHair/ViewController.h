@@ -11,10 +11,11 @@
 #import <GameKit/GameKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import "GAITrackedViewController.h"
 
 
-@interface ViewController : UIViewController<AdstirViewDelegate,GKLeaderboardViewControllerDelegate>
-
+//@interface ViewController : UIViewController<AdstirViewDelegate,GKLeaderboardViewControllerDelegate>
+@interface ViewController : GAITrackedViewController<AdstirViewDelegate,GKLeaderboardViewControllerDelegate>
 
 - (IBAction)displayGameFeat:(id)sender;
 @property (nonatomic, retain) AdstirView* adview; //プロパティーで宣言すると、管理が簡単になります。

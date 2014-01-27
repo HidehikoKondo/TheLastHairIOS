@@ -11,9 +11,10 @@
 #import <AVFoundation/AVFoundation.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import "AdstirView.h"
+#import "GAITrackedViewController.h"
 
 
-@interface AppsListViewController : UIViewController<AdstirViewDelegate>
+@interface AppsListViewController : GAITrackedViewController<AdstirViewDelegate>
 @property (nonatomic, retain) AdstirView* adview; //プロパティーで宣言すると、管理が簡単になります。
 @property (weak, nonatomic) IBOutlet UIWebView *appWebView;
 @property (weak, nonatomic) IBOutlet UIView *loadingView;
