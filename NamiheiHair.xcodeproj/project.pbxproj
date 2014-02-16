@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		061C6C441898230900C9F7E7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 061C6C431898230900C9F7E7 /* Images.xcassets */; };
 		0630BB3E17DE2E2100BF4184 /* libBead.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0630BB3D17DE2E2100BF4184 /* libBead.a */; };
 		06657FEF176C4C7700728370 /* gamefeatbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 06657FEE176C4C7700728370 /* gamefeatbutton.png */; };
 		06A58AFA1748CD88000C7FEA /* lineButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A58AF91748CD88000C7FEA /* lineButton.png */; };
+		06AD2B4D18A9FECB00C51833 /* FelloPush.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 06AD2B4B18A9FECA00C51833 /* FelloPush.bundle */; };
+		06AD2B4E18A9FECB00C51833 /* FelloPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06AD2B4C18A9FECA00C51833 /* FelloPush.framework */; };
 		06B75DFA17D4EEE4003173A8 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B75DF917D4EEE4003173A8 /* ImageIO.framework */; };
 		06B75DFC17D4EEEB003173A8 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B75DFB17D4EEEB003173A8 /* CoreMotion.framework */; };
 		06C7B453171147B3001783D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06C7B452171147B3001783D2 /* UIKit.framework */; };
@@ -71,8 +74,6 @@
 		06DA973218956D6F0013E59D /* MrdAstaWallRes.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 06DA973118956D6F0013E59D /* MrdAstaWallRes.bundle */; };
 		06DA973318956DA80013E59D /* MrdAstaWallRes.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = 06DA973118956D6F0013E59D /* MrdAstaWallRes.bundle */; };
 		06DA9735189570180013E59D /* MrdIconSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06DA9734189570180013E59D /* MrdIconSDK.framework */; };
-		06DA973D189578030013E59D /* FelloPush.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 06DA9738189578030013E59D /* FelloPush.bundle */; };
-		06DA973E189578030013E59D /* FelloPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06DA9739189578030013E59D /* FelloPush.framework */; };
 		06DD75861742A84C00BD7EF1 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06DD75851742A84C00BD7EF1 /* CFNetwork.framework */; };
 		06EC2A2D176D99E400B0BE84 /* GameFeatKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06EC2A2C176D99E400B0BE84 /* GameFeatKit.framework */; };
 		06EC2A2F176D99F800B0BE84 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06EC2A2E176D99F800B0BE84 /* CoreTelephony.framework */; };
@@ -102,10 +103,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		061C6C431898230900C9F7E7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0630BB3C17DE2E2100BF4184 /* Bead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bead.h; sourceTree = "<group>"; };
 		0630BB3D17DE2E2100BF4184 /* libBead.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBead.a; sourceTree = "<group>"; };
 		06657FEE176C4C7700728370 /* gamefeatbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamefeatbutton.png; sourceTree = "<group>"; };
 		06A58AF91748CD88000C7FEA /* lineButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lineButton.png; sourceTree = "<group>"; };
+		06AD2B4B18A9FECA00C51833 /* FelloPush.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FelloPush.bundle; sourceTree = "<group>"; };
+		06AD2B4C18A9FECA00C51833 /* FelloPush.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FelloPush.framework; sourceTree = "<group>"; };
 		06B75DF917D4EEE4003173A8 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		06B75DFB17D4EEEB003173A8 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		06C7B44F171147B3001783D2 /* TheLastHair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheLastHair.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,8 +187,6 @@
 		06DA972F18956D0D0013E59D /* MrdAstaWall.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MrdAstaWall.framework; sourceTree = "<group>"; };
 		06DA973118956D6F0013E59D /* MrdAstaWallRes.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MrdAstaWallRes.bundle; sourceTree = "<group>"; };
 		06DA9734189570180013E59D /* MrdIconSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MrdIconSDK.framework; sourceTree = "<group>"; };
-		06DA9738189578030013E59D /* FelloPush.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FelloPush.bundle; sourceTree = "<group>"; };
-		06DA9739189578030013E59D /* FelloPush.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FelloPush.framework; sourceTree = "<group>"; };
 		06DD75851742A84C00BD7EF1 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		06EC2A2C176D99E400B0BE84 /* GameFeatKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GameFeatKit.framework; sourceTree = "<group>"; };
 		06EC2A2E176D99F800B0BE84 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -222,8 +224,8 @@
 			files = (
 				06EC2A31176D9A0300B0BE84 /* StoreKit.framework in Frameworks */,
 				06DA973318956DA80013E59D /* MrdAstaWallRes.bundle in Frameworks */,
+				06AD2B4E18A9FECB00C51833 /* FelloPush.framework in Frameworks */,
 				06DA972E189561250013E59D /* CoreData.framework in Frameworks */,
-				06DA973E189578030013E59D /* FelloPush.framework in Frameworks */,
 				06DA972C189560D70013E59D /* libz.dylib in Frameworks */,
 				06C7B457171147B3001783D2 /* CoreGraphics.framework in Frameworks */,
 				06B75DFC17D4EEEB003173A8 /* CoreMotion.framework in Frameworks */,
@@ -285,7 +287,8 @@
 		06C7B451171147B3001783D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				06DA9736189578030013E59D /* NotificationsSDK */,
+				06AD2B4B18A9FECA00C51833 /* FelloPush.bundle */,
+				06AD2B4C18A9FECA00C51833 /* FelloPush.framework */,
 				06DA9734189570180013E59D /* MrdIconSDK.framework */,
 				06DA973118956D6F0013E59D /* MrdAstaWallRes.bundle */,
 				06DA972F18956D0D0013E59D /* MrdAstaWall.framework */,
@@ -330,6 +333,7 @@
 				06C7B46A171147B3001783D2 /* MainStoryboard.storyboard */,
 				06C7B4D41711C5DE001783D2 /* sound */,
 				06C7B49917114ECC001783D2 /* images */,
+				061C6C431898230900C9F7E7 /* Images.xcassets */,
 				06C7B459171147B3001783D2 /* Supporting Files */,
 			);
 			path = TheLastHair;
@@ -468,24 +472,6 @@
 			path = Library;
 			sourceTree = "<group>";
 		};
-		06DA9736189578030013E59D /* NotificationsSDK */ = {
-			isa = PBXGroup;
-			children = (
-				06DA9737189578030013E59D /* Debug */,
-			);
-			name = NotificationsSDK;
-			path = TheLastHair/NotificationsSDK;
-			sourceTree = "<group>";
-		};
-		06DA9737189578030013E59D /* Debug */ = {
-			isa = PBXGroup;
-			children = (
-				06DA9738189578030013E59D /* FelloPush.bundle */,
-				06DA9739189578030013E59D /* FelloPush.framework */,
-			);
-			path = Debug;
-			sourceTree = "<group>";
-		};
 		06DD757F1742A75900BD7EF1 /* bead */ = {
 			isa = PBXGroup;
 			children = (
@@ -594,6 +580,7 @@
 				06C7B4B317114FC1001783D2 /* house.png in Resources */,
 				06C7B4B417114FC1001783D2 /* icon512.png in Resources */,
 				06C7B4B517114FC1001783D2 /* likebutton.png in Resources */,
+				06AD2B4D18A9FECB00C51833 /* FelloPush.bundle in Resources */,
 				06C7B4B717114FC1001783D2 /* namiheihead.png in Resources */,
 				06C7B4B817114FC1001783D2 /* namiheiHead4inch.png in Resources */,
 				06C7B4B917114FC1001783D2 /* rankbutton.png in Resources */,
@@ -608,6 +595,7 @@
 				06C7B4DF1711C5DE001783D2 /* miss.mp3 in Resources */,
 				06C7B4E01711C5DE001783D2 /* ok.mp3 in Resources */,
 				06C7B4E11711C5DE001783D2 /* start.mp3 in Resources */,
+				061C6C441898230900C9F7E7 /* Images.xcassets in Resources */,
 				06C7B4E21711C5DE001783D2 /* unplug.mp3 in Resources */,
 				06FF4544171D997400907758 /* icon.png in Resources */,
 				06FF4545171D997400907758 /* icon@2x.png in Resources */,
@@ -626,7 +614,6 @@
 				06EC2A47176D9B9500B0BE84 /* gamefeat_overlay.html in Resources */,
 				06EC2A48176D9B9500B0BE84 /* gamefeat_overlay_close.png in Resources */,
 				06EC2A49176D9B9500B0BE84 /* gamefeat_overlay_l.png in Resources */,
-				06DA973D189578030013E59D /* FelloPush.bundle in Resources */,
 				06EC2A4A176D9B9500B0BE84 /* gamefeat_overlay_p.png in Resources */,
 				06EC2A4B176D9B9500B0BE84 /* gamefeat_rect_banner.png in Resources */,
 				06EC2A4C176D9B9500B0BE84 /* gamefeat_style.css in Resources */,
@@ -685,8 +672,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: HIDEHIKO KONDO (7JKB5AMAKP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: HIDEHIKO KONDO (7JKB5AMAKP)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -701,7 +688,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				ONLY_ACTIVE_ARCH = YES;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "94DBE157-92AA-42DB-844B-B43DAC8D7CF4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "94DBE157-92AA-42DB-844B-B43DAC8D7CF4";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -718,8 +706,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: HIDEHIKO KONDO (7JKB5AMAKP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: HIDEHIKO KONDO (7JKB5AMAKP)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -727,6 +715,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "94DBE157-92AA-42DB-844B-B43DAC8D7CF4";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -735,8 +724,10 @@
 		06C7B473171147B3001783D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: HIDEHIKO KONDO (RKVXEJV6P7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: HIDEHIKO KONDO (RKVXEJV6P7)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
@@ -769,7 +760,9 @@
 		06C7B474171147B3001783D2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
