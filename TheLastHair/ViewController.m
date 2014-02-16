@@ -58,6 +58,11 @@ bool error = NO;
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    // アイコン、バッジ表示
+    //　非表示
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    
+    
     //google analytics
     self.screenName = @"TopPage";
     
