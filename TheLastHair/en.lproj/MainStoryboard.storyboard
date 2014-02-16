@@ -122,10 +122,6 @@
                                     <segue destination="yo6-YG-uEb" kind="modal" id="D83-fs-ITM"/>
                                 </connections>
                             </button>
-                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="applititle.png" id="LHC-cC-9Ya">
-                                <rect key="frame" x="13" y="540" width="68" height="14"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.71479897944544546" green="1" blue="0.68766573422083876" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -133,7 +129,6 @@
                     <connections>
                         <outlet property="appsButton" destination="1zz-fT-56X" id="FRU-BV-zcl"/>
                         <outlet property="gamefeatButton" destination="UVw-Dy-IWK" id="s19-cH-puf"/>
-                        <outlet property="gamefeatImage" destination="LHC-cC-9Ya" id="13M-tQ-XpA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -295,7 +290,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="applititle.png" width="136" height="27"/>
         <image name="bakamon.png" width="618" height="125"/>
         <image name="endbutton.png" width="144" height="54"/>
         <image name="finger.png" width="396" height="360"/>

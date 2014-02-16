@@ -106,6 +106,7 @@ bool error = NO;
         frame.origin = origins[i];                                          //位置
         frame.size = kMrdIconCell_DefaultViewSize;                          //サイズ75x75
         MrdIconCell* iconCell = [[MrdIconCell alloc]initWithFrame:frame];   //セル生成
+        iconCell.titleFrame = CGRectNull;                                   //タイトル非表示
         [iconLoader addIconCell:iconCell];                                  //セル追加
         [self.view addSubview:iconCell];                                    //セル配置
         [iconLoader startLoadWithMediaCode: @"id570377317"];                //ID設定
@@ -414,6 +415,7 @@ BOOL isGameCenterAPIAvailable()
 //gamefeatを表示
 - (IBAction)displayGameFeat:(id)sender {
     [GFController showGF:self site_id:@"1034"];
+
 }
 
 
@@ -562,6 +564,8 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
 
 -(IBAction)displayAsterWall:(id)sender{
+    [self playSound:@"ok"];
+
     // 基本的なウォールの表示方法は以下のようになります。
     // ウォールを表示したいタイミング(ボタンをタップした際の処理など)で記述して下さい。
     NSBundle *mrdAstaWallBundle = [NSBundle bundleWithPath:[MrdAstaWall frameworkBundlePath]]; // (1)

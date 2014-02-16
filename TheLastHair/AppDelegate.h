@@ -8,12 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "GAI.h"
-#import <FelloPush/KonectNotificationsAPI.h>
 #import <FelloPush/IKonectNotificationsCallback.h>
 
-static NSString* appId = @"10361";      //felloのID プッシュ通知用
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, IKonectNotificationsCallback>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,IKonectNotificationsCallback>
 
 @property (strong, nonatomic) UIWindow *window;
 

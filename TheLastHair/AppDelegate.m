@@ -8,7 +8,9 @@
 
 #import "AppDelegate.h"
 #import "Bead.h"
+#import <FelloPush/KonectNotificationsAPI.h>
 
+static NSString* appId = @"10361";
 @implementation AppDelegate
 
 
@@ -47,13 +49,11 @@
     id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-47478460-1"];
 
    
-    
-    // サンドボックス環境に接続するならYES、本番環境に接続するならNO
-    BOOL isTest = YES;
-    [KonectNotificationsAPI initialize:self launchOptions:launchOptions appId:appId isTest:isTest];
-    
-    
-    
+   // Fello push通知 アプリケーションID
+   NSString* appId = @"10361";
+   [KonectNotificationsAPI initialize:self launchOptions:launchOptions appId:appId];
+   
+   
     return YES;
 }
 							
@@ -83,5 +83,8 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
+
 
 @end
