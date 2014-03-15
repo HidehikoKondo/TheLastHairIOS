@@ -575,7 +575,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
     // ウォールを表示したいタイミング(ボタンをタップした際の処理など)で記述して下さい。
     NSBundle *mrdAstaWallBundle = [NSBundle bundleWithPath:[MrdAstaWall frameworkBundlePath]]; // (1)
     MrdAstaWallViewController *vc = [[MrdAstaWallViewController alloc]initWithNibName:@"MrdAstaWallViewController" bundle:mrdAstaWallBundle]; // (2)
-    [vc setMediaCode:@"id570377317"]; // (3)
+    [vc setMediaCode:@"ast00400jm0th80qz0ma"]; // (3)
     if ([self respondsToSelector:@selector(presentViewController:animated:completion:)]) {
         [self presentViewController:vc animated:YES completion:nil]; // (4)
     } else { //iOS5未満
