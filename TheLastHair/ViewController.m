@@ -79,8 +79,12 @@ bool error = NO;
     //ダウンロードダイアログ用のuserdefaults読み出し
    newapp = [NSUserDefaults standardUserDefaults];
 
-    //アスタ表示
+    //gamefeatとアプリリンクボタンを非表示
     [_gamefeatButton setHidden:YES];
+    [_appsButton setHidden:YES];
+    
+    
+    //アスタ表示
     [self displayIconAdd];
    
    //xml読み込み
@@ -600,6 +604,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     //アスタが表示されたらgamefeatも表示する。
     [_gamefeatButton setHidden:NO];
+    [_appsButton setHidden:NO];
 }
 
 - (void)loader:(MrdIconLoader*)loader didFailToLoadContentForCells:(NSArray*)cells
@@ -609,6 +614,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 	}
     //アスタが表示されたらgamefeatも表示する。
     [_gamefeatButton setHidden:YES];
+    [_appsButton setHidden:YES];
 }
 
 - (BOOL)loader:(MrdIconLoader*)loader willHandleTapOnCell:(MrdIconCell*)aCell
