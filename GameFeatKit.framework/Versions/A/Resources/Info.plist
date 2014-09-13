@@ -9,7 +9,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.1</string>
+	<string>2.0.0</string>
 	<key>CFBundleExecutable</key>
 	<string>GameFeatKit</string>
 	<key>CFBundleGetInfoString</key>
@@ -27,6 +27,6 @@
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright Basicinc.jp. All rights reserved.</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.1</string>
+	<string>2.0.0</string>
 </dict>
 </plist>

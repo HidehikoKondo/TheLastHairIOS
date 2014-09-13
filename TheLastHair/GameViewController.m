@@ -459,14 +459,16 @@
 //アスタ広告
 -(void)displayIconAdd{
    //表示するY座標をUDONKOAPPSボタンと同じにする
-   NSInteger iconY = 130;
+   NSInteger iconY = 75;
    
    // The array of points used as origin of icon frame
 	CGPoint origins[] = {
 		{0, iconY},
-      {245, iconY},
-      {0,iconY+100},
-      {245,iconY+100}
+        {245, iconY},
+        {0,iconY+100},
+        {245,iconY+100},
+        {0,iconY+200},
+        {245,iconY+200}
    };
    
    MrdIconLoader* iconLoader = [[MrdIconLoader alloc]init]; // (1)
@@ -475,8 +477,15 @@
    //	IF_NO_ARC([iconLoader release];)
    
    
+    int iconCount = 6;
+    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+    
+    //4inchの時は４個
+    if(screenSize.height < 568){
+        iconCount = 4;
+    }
    
-   for (int i=0; i < 4; i++)
+   for (int i=0; i < iconCount; i++)
 	{
       CGRect frame;                                                       //frame
       frame.origin = origins[i];                                          //位置

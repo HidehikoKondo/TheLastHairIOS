@@ -80,10 +80,12 @@ bool error = NO;
    newapp = [NSUserDefaults standardUserDefaults];
 
     //アスタ表示
+    [_gamefeatButton setHidden:YES];
     [self displayIconAdd];
    
    //xml読み込み
    [self loadDownloadXML];
+    
    
 }
 
@@ -378,7 +380,6 @@ BOOL isGameCenterAPIAvailable()
 - (void)viewDidUnload {
     [self setAppsButton:nil];
     [self setGamefeatButton:nil];
-    [self setGamefeatImage:nil];
     [super viewDidUnload];
 }
 - (IBAction)lineButton:(id)sender {
@@ -598,8 +599,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 	}
     
     //アスタが表示されたらgamefeatも表示する。
-    [_gamefeatButton setHidden:false];
-    [_gamefeatImage setHidden:false];
+    [_gamefeatButton setHidden:NO];
 }
 
 - (void)loader:(MrdIconLoader*)loader didFailToLoadContentForCells:(NSArray*)cells
@@ -608,15 +608,11 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 		NSLog(@"---- The content is missing for iconCell:%p, loader:%p", cell,  loader);
 	}
     //アスタが表示されたらgamefeatも表示する。
-    [_gamefeatButton setHidden:false];
-    [_gamefeatImage setHidden:false];
+    [_gamefeatButton setHidden:YES];
 }
 
 - (BOOL)loader:(MrdIconLoader*)loader willHandleTapOnCell:(MrdIconCell*)aCell
 {
-    //アスタが表示されたらgamefeatも表示する。
-    [_gamefeatButton setHidden:false];
-    [_gamefeatImage setHidden:false];
 	NSLog(@"---- loader:%p willHandleTapOnCell:%@", loader, aCell);
 	return YES;
     
@@ -624,9 +620,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
 - (void)loader:(MrdIconLoader*)loader willOpenURL:(NSURL*)url cell:(MrdIconCell*)aCell
 {
-    //アスタが表示されたらgamefeatも表示する。
-    [_gamefeatButton setHidden:false];
-    [_gamefeatImage setHidden:false];
+
 	NSLog(@"---- loader:%p willOpenURL:%@ cell:%@", loader, [url absoluteString], aCell);
 }
 

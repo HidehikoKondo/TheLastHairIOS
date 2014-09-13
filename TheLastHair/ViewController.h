@@ -24,6 +24,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *appsButton;
 - (IBAction)lineButton:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *gamefeatButton;
-@property (weak, nonatomic) IBOutlet UIImageView *gamefeatImage;
+//@property (weak, nonatomic) IBOutlet UIImageView *gamefeatImage;
 
 @end
