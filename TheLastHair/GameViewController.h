@@ -11,9 +11,11 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import "AdstirView.h"
 #import "GAITrackedViewController.h"
+#import "GADInterstitial.h"
 
 
-@interface GameViewController : GAITrackedViewController<AdstirViewDelegate>{
+@interface GameViewController : GAITrackedViewController<AdstirViewDelegate,GADInterstitialDelegate>{
+    GADInterstitial *interstitial_;
 
 }
 @property (nonatomic, retain) AdstirView* adview; //プロパティーで宣言すると、管理が簡単になります。

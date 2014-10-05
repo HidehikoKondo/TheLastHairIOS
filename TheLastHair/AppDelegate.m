@@ -42,7 +42,7 @@ static NSString* appId = @"10361";
     // Override point for customization after application launch.
    
    [Bead initializeAd];
-   [[Bead sharedInstance] addSID:@"240de5cb325a1c9dfe304691856fe1f5ac7db3f7c4e52001" interval:4];
+   [[Bead sharedInstance] addSID:@"240de5cb325a1c9dfe304691856fe1f5ac7db3f7c4e52001" interval:7];
 
     //googleanalytics
     // Initialize tracker.

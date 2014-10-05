@@ -36,6 +36,10 @@
     self.screenName = @"AppList";
     
     
+    // AdMobのインタースティシャル広告読み込み
+    [self loadAdMobIntersBanner];
+    
+    
     
 	// Do any additional setup after loading the view.
     
@@ -102,5 +106,29 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+// AdMobのインタースティシャル広告読み込み
+- (void)loadAdMobIntersBanner
+{
+    interstitial_ = [[GADInterstitial alloc] init];
+    interstitial_.delegate = self;
+    interstitial_.adUnitID = @"ca-app-pub-3324877759270339/8563045425";
+    [interstitial_ loadRequest:[GADRequest request]];
+}
+
+// AdMobのインタースティシャル広告表示
+- (void)interstitialDidReceiveAd:(GADInterstitial *)ad
+{
+    [interstitial_ presentFromRootViewController:self];
+    NSLog(@"admob interstitialDidReceiveAd");
+}
+
+- (void)interstitial:(GADInterstitial *)interstitial didFailToReceiveAdWithError:(GADRequestError *)error
+{
+    NSLog(@"admob interstitial didFailToReceiveAdWithError");
+}
+
+
 
 @end

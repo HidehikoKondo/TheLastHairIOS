@@ -66,6 +66,10 @@
 {
    [super viewDidLoad];
     
+    // AdMobのインタースティシャル広告読み込み
+    [self loadAdMobIntersBanner];
+
+    
     //google analytics
     self.screenName = @"GameStart";
     
@@ -109,6 +113,26 @@
    
    //アスタ表示
    [self displayIconAdd];
+}
+
+
+// AdMobのインタースティシャル広告読み込み
+- (void)loadAdMobIntersBanner
+{
+    interstitial_ = [[GADInterstitial alloc] init];
+    interstitial_.adUnitID = @"ca-app-pub-3324877759270339/8563045425";
+    [interstitial_ loadRequest:[GADRequest request]];
+}
+
+// AdMobのインタースティシャル広告表示
+- (void)interstitialDidReceiveAd:(GADInterstitial *)ad
+{
+    NSLog(@"admob interstitialDidReceiveAd");
+}
+
+- (void)interstitial:(GADInterstitial *)interstitial didFailToReceiveAdWithError:(GADRequestError *)error
+{
+    NSLog(@"admob interstitial didFailToReceiveAdWithError");
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -155,6 +179,9 @@
 
 #pragma mark - gameover
 -(void)gameover{
+    
+
+    
     //google analytics
     self.screenName = @"GameOver";
     
@@ -193,7 +220,11 @@
    }else{
       //アニメーションが終わった後に広告表示
       NSTimer *tm = [NSTimer scheduledTimerWithTimeInterval:1.1f target:self selector:@selector(displayBead:) userInfo:nil repeats:NO];
-      
+       
+       //5回に１回インタースティシャル広告
+       if([playCount integerForKey:@"play"]%5 == 0){
+     NSTimer *tm = [NSTimer scheduledTimerWithTimeInterval:1.1f target:self selector:@selector(displayAdmob:) userInfo:nil repeats:NO];
+       }
    }
    
    
@@ -239,16 +270,22 @@
    
    //    [self.adview setCenter:CGPointMake(160,25)];
    
+
+    
    
    
 }
 
+-(void)displayAdmob:(NSTimer*)timer
+{
+    [interstitial_ presentFromRootViewController:self];
+
+}
 -(void)displayBead:(NSTimer*)timer{
    
    //bead表示
    NSLog(@"bead表示");
    [[Bead sharedInstance] showWithSID:@"240de5cb325a1c9dfe304691856fe1f5ac7db3f7c4e52001"];
-   
 }
 
 #pragma mark - タッチイベント
@@ -459,7 +496,7 @@
 //アスタ広告
 -(void)displayIconAdd{
    //表示するY座標をUDONKOAPPSボタンと同じにする
-   NSInteger iconY = 75;
+   NSInteger iconY = 125;
    
    // The array of points used as origin of icon frame
 	CGPoint origins[] = {
@@ -477,7 +514,7 @@
    //	IF_NO_ARC([iconLoader release];)
    
    
-    int iconCount = 6;
+    int iconCount = 4;
     CGSize screenSize = [[UIScreen mainScreen] bounds].size;
     
     //4inchの時は４個

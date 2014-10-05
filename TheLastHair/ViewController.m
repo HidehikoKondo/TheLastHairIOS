@@ -15,7 +15,7 @@
 #import <GameFeatKit/GFController.h>
 #import "GAI.h"
 #import <MrdAstaWall/MrdAstaWall.h>
-
+#import "AppDelegate.h"
 
 #define TWEETTITLE   @"Twitterにサインインしてね"
 #define TWEETMESSAGE @"iPhoneの「設定」→「Twitter」→ユーザー名とパスワードを入力して「サインイン」をタップ"
@@ -41,15 +41,13 @@
 @implementation ViewController
 NSString *nowTagStr;
 NSString *txtBuffer;
-
 NSString *strNo;
 NSString *strDate;
 NSString *strMessage;
 NSString *strTitle;
 NSString *strUrl;
 bool error = NO;
-
-
+AppDelegate  *delegate;
 
 @synthesize iconLoader = _iconLoader;
 
@@ -57,6 +55,10 @@ bool error = NO;
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    // AdMobのインタースティシャル広告読み込み
+//    [self loadAdMobIntersBanner];
+
     
     // アイコン、バッジ表示
     //　非表示
@@ -92,6 +94,28 @@ bool error = NO;
     
    
 }
+
+// AdMobのインタースティシャル広告読み込み
+- (void)loadAdMobIntersBanner
+{
+    interstitial_ = [[GADInterstitial alloc] init];
+    interstitial_.delegate = self;
+    interstitial_.adUnitID = @"ca-app-pub-3324877759270339/8563045425";
+    [interstitial_ loadRequest:[GADRequest request]];
+}
+
+// AdMobのインタースティシャル広告表示
+- (void)interstitialDidReceiveAd:(GADInterstitial *)ad
+{
+    [interstitial_ presentFromRootViewController:self];
+    NSLog(@"admob interstitialDidReceiveAd");
+}
+
+- (void)interstitial:(GADInterstitial *)interstitial didFailToReceiveAdWithError:(GADRequestError *)error
+{
+    NSLog(@"admob interstitial didFailToReceiveAdWithError");
+}
+
 
 -(void)displayIconAdd{
     //表示するY座標をUDONKOAPPSボタンと同じにする
@@ -158,7 +182,12 @@ bool error = NO;
     [self sendLeaderboard];
     
     
-    
+//    if(delegate.interstitalFlg){
+//        [self interstitalAdd:nil];
+//    }
+//    
+//    delegate = [[AppDelegate alloc]init];
+//    delegate.interstitalFlg = YES;
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -188,6 +217,22 @@ bool error = NO;
         [facebookPostVC addImage:[UIImage imageNamed:@"icon512.png"]];
         [facebookPostVC addURL:[NSURL URLWithString:APPURL]];
         
+        // 処理終了後に呼び出されるコールバックを指定する
+        [facebookPostVC setCompletionHandler:^(SLComposeViewControllerResult result) {
+            
+            switch (result) {
+                case SLComposeViewControllerResultDone:
+                    NSLog(@"Done!!");
+                    [NSTimer scheduledTimerWithTimeInterval:0.3f target:self selector:@selector(interstitalAdd:) userInfo:nil repeats:NO];
+                    break;
+                case SLComposeViewControllerResultCancelled:
+                    NSLog(@"Cancel!!");
+                    [NSTimer scheduledTimerWithTimeInterval:0.3f target:self selector:@selector(interstitalAdd:) userInfo:nil repeats:NO];
+                    break;
+            }
+        }];
+        
+        
         [self presentViewController:facebookPostVC animated:YES completion:nil];
     }else{
         NSLog(@"FB未対応");
@@ -207,12 +252,31 @@ bool error = NO;
     [self playSound:@"ok"];
     
     
+
+    
     if(NSClassFromString(@"SLComposeViewController")) {
         // Social Frameworkが使える
         SLComposeViewController *twitterPostVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
         [twitterPostVC setInitialText:[NSString stringWithFormat:@"%@　【ハゲ親父断髪式：最高記録 %d本抜き】#udonkonet",SOCIALTEXT, [score integerForKey:@"SCORE"]]];
         [twitterPostVC addImage:[UIImage imageNamed:@"icon512.png"]];
         [twitterPostVC addURL:[NSURL URLWithString:APPURL]];
+        
+        // 処理終了後に呼び出されるコールバックを指定する
+        [twitterPostVC setCompletionHandler:^(SLComposeViewControllerResult result) {
+            
+            switch (result) {
+                case SLComposeViewControllerResultDone:
+                    NSLog(@"Done!!");
+                    [NSTimer scheduledTimerWithTimeInterval:0.3f target:self selector:@selector(interstitalAdd:) userInfo:nil repeats:NO];
+                    break;
+                case SLComposeViewControllerResultCancelled:
+                    NSLog(@"Cancel!!");
+                    [NSTimer scheduledTimerWithTimeInterval:0.3f target:self selector:@selector(interstitalAdd:) userInfo:nil repeats:NO];
+                    break;
+            }
+        }];
+        
+        
         [self presentViewController:twitterPostVC animated:YES completion:nil];
         
     }
@@ -244,6 +308,13 @@ bool error = NO;
     }
 }
 
+-(void)interstitalAdd:(NSTimer*)timer
+{
+    
+    [self loadAdMobIntersBanner];
+
+
+}
 #pragma mark - 音声処理関係
 -(void) playSound:(NSString *)filename{
     //OK音再生
@@ -351,7 +422,11 @@ BOOL isGameCenterAPIAvailable()
 //リーダーボードで完了を押した時に呼ばれる（リーダーボードを閉じる処理）
 - (void)leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:^{
+        NSLog(@"Dismiss completed");
+        [self interstitalAdd:nil];
+    }];
+
 }
 
 
@@ -425,7 +500,19 @@ BOOL isGameCenterAPIAvailable()
 //gamefeatを表示
 - (IBAction)displayGameFeat:(id)sender {
     [GFController showGF:self site_id:@"1034"];
+}
 
+
+//=======================================================
+// GFViewDelegate
+//=======================================================
+- (void)didShowGameFeat{
+    // GameFeatが表示されたタイミングで呼び出されるdelegateメソッド
+    NSLog(@"didShowGameFeat");
+}
+- (void)didCloseGameFeat{
+    // GameFeatが閉じられたタイミングで呼び出されるdelegateメソッド
+    NSLog(@"didCloseGameFeat");
 }
 
 
@@ -588,6 +675,9 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
     }
  //   [vc release]; // (6)
 }
+
+
+
 
 
 @end

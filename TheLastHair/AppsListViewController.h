@@ -12,9 +12,14 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import "AdstirView.h"
 #import "GAITrackedViewController.h"
+#import "GADInterstitial.h"
+#import "GADInterstitialDelegate.h"
 
 
-@interface AppsListViewController : GAITrackedViewController<AdstirViewDelegate>
+@interface AppsListViewController : GAITrackedViewController<AdstirViewDelegate,GADInterstitialDelegate>{
+    // インスタンス変数として 1 つ宣言する
+    GADInterstitial *interstitial_;
+}
 @property (nonatomic, retain) AdstirView* adview; //プロパティーで宣言すると、管理が簡単になります。
 @property (weak, nonatomic) IBOutlet UIWebView *appWebView;
 @property (weak, nonatomic) IBOutlet UIView *loadingView;

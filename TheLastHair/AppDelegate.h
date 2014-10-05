@@ -14,5 +14,6 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate,IKonectNotificationsCallback>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic,assign) BOOL interstitalFlg;
 
 @end
