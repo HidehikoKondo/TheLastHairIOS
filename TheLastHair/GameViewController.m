@@ -111,6 +111,22 @@
    //ランダム値生成
    srand(time(nil));
    
+    //画面取得
+    UIScreen *sc = [UIScreen mainScreen];
+    
+    //ステータスバー込みのサイズ
+    CGRect rect = sc.bounds;
+    NSLog(@"%.1f, %.1f", rect.size.width, rect.size.height);
+
+    self.adview = [[AdstirView alloc]initWithOrigin:CGPointMake(0, rect.size.height-50)];
+    //   self.adview = [[AdstirView alloc]initWithOrigin:CGPointZero];
+    self.adview.media = @"MEDIA-f5977393";
+    self.adview.spot = 1;
+    self.adview.rootViewController = self;
+    [self.adview start];
+    [self.view addSubview:self.adview];
+    
+    
    //アスタ表示
    [self displayIconAdd];
 }
@@ -141,28 +157,13 @@
    //Adstir表示
 	// MEDIA-ID,SPOT-NOには、管理画面で発行されたメディアID, 枠ナンバーを埋め込んでください。
 	// 詳しくはhttp://wiki.ad-stir.com/%E3%83%A1%E3%83%87%E3%82%A3%E3%82%A2ID%E5%8F%96%E5%BE%97をご覧ください。
-	//画面取得
-   UIScreen *sc = [UIScreen mainScreen];
    
-   //ステータスバー込みのサイズ
-   CGRect rect = sc.bounds;
-   NSLog(@"%.1f, %.1f", rect.size.width, rect.size.height);
-   
-   //    self.adview = [[AdstirView alloc]initWithOrigin:CGPointMake(0, rect.size.height-50)];
-   self.adview = [[AdstirView alloc]initWithOrigin:CGPointZero];
-   self.adview.media = @"MEDIA-f5977393";
-	self.adview.spot = 1;
-	self.adview.rootViewController = self;
-	[self.adview start];
-	[self.view addSubview:self.adview];
+
    
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
-	[self.adview stop];
-	[self.adview removeFromSuperview];
-	self.adview.rootViewController = nil;
-	self.adview = nil;
+
 	[super viewWillDisappear:animated];
    
    
@@ -180,6 +181,8 @@
 #pragma mark - gameover
 -(void)gameover{
     
+    self.adview.frame = CGRectMake(0, 0, self.adview.frame.size.width, self.adview.frame.size.height);
+
 
     
     //google analytics
@@ -222,7 +225,7 @@
       NSTimer *tm = [NSTimer scheduledTimerWithTimeInterval:1.1f target:self selector:@selector(displayBead:) userInfo:nil repeats:NO];
        
        //5回に１回インタースティシャル広告
-       if([playCount integerForKey:@"play"]%5 == 0){
+       if([playCount integerForKey:@"play"]%2 == 0){
      NSTimer *tm = [NSTimer scheduledTimerWithTimeInterval:1.1f target:self selector:@selector(displayAdmob:) userInfo:nil repeats:NO];
        }
    }
@@ -487,6 +490,13 @@
 }
 
 - (IBAction)backButton:(id)sender {
+    
+    [self.adview stop];
+    [self.adview removeFromSuperview];
+    self.adview.rootViewController = nil;
+    self.adview = nil;
+    
+    
    //終わり音再生
    [self playSound:@"back"];
    [self dismissViewControllerAnimated:NO completion:nil];
