@@ -180,11 +180,6 @@
 
 #pragma mark - gameover
 -(void)gameover{
-    
-    self.adview.frame = CGRectMake(0, 0, self.adview.frame.size.width, self.adview.frame.size.height);
-
-
-    
     //google analytics
     self.screenName = @"GameOver";
     
